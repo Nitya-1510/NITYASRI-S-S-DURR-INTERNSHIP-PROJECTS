@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* This allows us to use margins to position the box and table */
+    align-items: stretch;
+    padding: 20px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+
+    /* Updated Background for the DÜRR building image */
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+            url('/static/mmmmmm (1).jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+}
+.login-frame {
+    /* Pushes only the login box to the right side */
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: 20px;
+
+    width: 380px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+
+h2 {
+    color: white;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.field-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.connect-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2b82f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Accessibility helper to hide labels from view but keep PyCharm happy */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.table-responsive {
+    /* Keeps the table wide and centered at the bottom */
+    margin: 40px auto;
+    width: 95%;
+    max-width: 1400px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Optional: Clean up the table inside the frame */
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0; /* Removes extra space inside the frame */
+}

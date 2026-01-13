@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DÜRR INDIA - Results</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.6/css/dataTables.dataTables.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.6/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/scroller/2.3.0/js/dataTables.scroller.min.js"></script>
+</head>
+<body style="padding: 20px; font-family: Arial, sans-serif;">
+    <h2>Processed Table</h2>
+    <hr>
+    <table id="myTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>formatted_date</th>
+                <th>Value ID</th>
+                <th>Number</th>
+                <th>Summary</th>
+                <th>Area Key</th>
+                <th>Medium</th>
+                <th>Unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            </tbody>
+    </table>
+    <!-- Inject Flask data into JS -->
+    <script>
+        // Jinja will safely dump your Python list of dicts into JSON
+        var tableData = {{ data|tojson|safe }};
+
+        $(document).ready(function() {
+            $('#myTable').DataTable({
+                data: tableData,
+                columns: [
+                    { data: 'formatted_date' },
+                    { data: 'value_id' },
+                    { data: 'number' },
+                    { data: 'summary' },
+                    { data: 'area_key' },
+                    { data: 'medium' },
+                    { data: 'unit' }
+                ],
+                scrollY: 400,
+                scroller: true
+            });
+        });
+    </script>
+
+</body>
+</html>

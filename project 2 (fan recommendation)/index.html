@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Fan Recommendation System</h1>
+        <form id="predictionForm" class="input-form">
+            <div class="input-group">
+                <label for="flowVolume">Actual Flow Volume (Air/Gas)</label>
+                <input 
+                    type="number" 
+                    id="flowVolume" 
+                    name="flowVolume" 
+                    placeholder="Actual Flow Volume (Air/Gas)"
+                    step="any"
+                    required
+                >
+            </div>
+            
+            <div class="input-group">
+                <label for="staticPressure">Pressure (Static)</label>
+                <input 
+                    type="number" 
+                    id="staticPressure" 
+                    name="staticPressure" 
+                    placeholder="Pressure (Static)"
+                    step="any"
+                    required
+                >
+            </div>
+            
+            <button type="submit" id="predictBtn" class="predict-button">Predict</button>
+        </form>
+        
+        <div id="result" class="result-container" style="display: none;"></div>
+    </div>
+    
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const flowVolume = document.getElementById('flowVolume').value;
+            const staticPressure = document.getElementById('staticPressure').value;
+
+            // Get the result container
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+
+            // Display the input values (you can replace this with actual prediction logic)
+            resultDiv.innerHTML = `
+                <p><strong>Flow Volume:</strong> ${response.flowVolume}</p>
+                <p><strong>Static Pressure:</strong> ${response.staticPressure}</p>
+                <p><strong>Predicted Power:</strong> ${response.prediction} kW</p>
+                <p><strong>Recommended Vendor:</strong> ${response.recommended_vendor}</p>
+            `;
+        });
+    </script>
+</body>
+</html>
